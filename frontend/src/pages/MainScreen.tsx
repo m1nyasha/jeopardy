@@ -7,7 +7,7 @@ import PlayerList from '../components/PlayerList'
 import GameOver from '../components/GameOver'
 import '../styles/MainScreen.css'
 
-const POLLING_INTERVAL = 1000
+const POLLING_INTERVAL = 100
 
 export default function MainScreen() {
   const [gameState, setGameState] = useState<GameState | null>(null)

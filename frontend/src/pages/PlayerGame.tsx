@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { getGameState, playerAnswer, GameState, Player } from '../api'
 import '../styles/PlayerGame.css'
 
-const POLLING_INTERVAL = 1000
+const POLLING_INTERVAL = 100
 
 export default function PlayerGame() {
   const { playerId } = useParams<{ playerId: string }>()

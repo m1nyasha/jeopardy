@@ -14,7 +14,7 @@ import {
 } from '../api'
 import '../styles/AdminPanel.css'
 
-const POLLING_INTERVAL = 1000
+const POLLING_INTERVAL = 100
 
 export default function AdminPanel() {
   const [gameState, setGameState] = useState<GameState | null>(null)
