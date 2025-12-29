@@ -28,5 +28,7 @@ Thumbs.db
 mysql_data/
 
 # Directories to ignore
-images/
-categories/
+images/*
+categories/*
+!images/.gitkeep
+!categories/.gitkeep
