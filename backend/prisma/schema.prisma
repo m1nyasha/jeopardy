@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  login     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Player {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  score     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id        Int        @id @default(autoincrement())
+  name      String
+  questions Question[]
+}
+
+model Question {
+  id         Int      @id @default(autoincrement())
+  question   String   @db.Text
+  type       String   // "text" or "image"
+  answer     String
+  points     Int
+  isAnswered Boolean  @default(false)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId Int
+}
+
+model GameState {
+  id                  Int      @id @default(autoincrement())
+  status              String   @default("waiting") // waiting, question, answering, finished
+  currentQuestionId   Int?
+  currentPlayerId     Int?
+  showAnswer          Boolean  @default(false)
+  failedPlayerIds     String   @default("[]") // JSON array of player IDs who failed current question
+  updatedAt           DateTime @updatedAt
+}
+

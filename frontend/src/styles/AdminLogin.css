@@ -1,0 +1,104 @@
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.admin-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid rgba(196, 30, 58, 0.3);
+  box-shadow: var(--shadow-card);
+  animation: scaleIn 0.5s ease-out;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.admin-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.admin-header h1 {
+  font-size: 1.6rem;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+.admin-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.admin-form .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-form label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  background: var(--bg-secondary);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 20px rgba(196, 30, 58, 0.2);
+}
+
+.admin-input::placeholder {
+  color: var(--text-muted);
+}
+
+.admin-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--red-dark), var(--red));
+  color: white;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.admin-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+}
+
+.admin-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+

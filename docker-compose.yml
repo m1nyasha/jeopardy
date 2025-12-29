@@ -1,0 +1,59 @@
+name: jeopardy
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: jeopardy-db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: jeopardy
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    networks:
+      - jeopardy-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: jeopardy-backend
+    environment:
+      DATABASE_URL: mysql://root:password@mysql:3306/jeopardy
+      PORT: 3001
+      POLLING_INTERVAL: 1000
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./categories:/app/categories:ro
+      - ./images:/app/public/images:ro
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - jeopardy-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: jeopardy-frontend
+    ports:
+      - "3002:3002"
+    depends_on:
+      - backend
+    networks:
+      - jeopardy-network
+
+volumes:
+  mysql_data:
+
+networks:
+  jeopardy-network:
+    driver: bridge
+

@@ -1,0 +1,132 @@
+.main-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  overflow: hidden;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  animation: fadeIn 0.8s ease-out;
+  flex-shrink: 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-text {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.logo-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2);
+}
+
+.nav-link-admin {
+  background: linear-gradient(135deg, var(--red-dark), var(--red));
+  border-color: transparent;
+}
+
+.nav-link-admin:hover {
+  background: linear-gradient(135deg, var(--red), #e02050);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0.5rem 0;
+  min-height: 0;
+}
+
+.main-footer {
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  animation: fadeIn 0.8s ease-out 0.3s both;
+  flex-shrink: 0;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 1rem;
+}
+
+.loading-spinner {
+  font-size: 4rem;
+  animation: float 1.5s ease-in-out infinite;
+}
+
+.loading p {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+.error-container {
+  text-align: center;
+  padding: 3rem;
+  background: var(--bg-card);
+  border-radius: 20px;
+  border: 1px solid var(--red);
+  margin: 3rem auto;
+  max-width: 500px;
+}
+
+.error-container h2 {
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+

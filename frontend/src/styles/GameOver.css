@@ -1,0 +1,206 @@
+.game-over {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  animation: scaleIn 0.6s ease-out;
+  position: relative;
+}
+
+.game-over-header {
+  margin-bottom: 3rem;
+}
+
+.game-over-header h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2s linear infinite;
+  margin-bottom: 0.5rem;
+}
+
+.game-over-header p {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.podium-place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideInLeft 0.6s ease-out both;
+}
+
+.podium-place.place-1 {
+  order: 2;
+}
+
+.podium-place.place-2 {
+  order: 1;
+}
+
+.podium-place.place-3 {
+  order: 3;
+}
+
+.medal {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.podium-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.podium-score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.podium-bar {
+  width: 120px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, var(--bg-card-hover), var(--bg-card));
+  border: 2px solid var(--gold);
+  border-bottom: none;
+}
+
+.place-1 .podium-bar {
+  height: 150px;
+  background: linear-gradient(180deg, rgba(255, 215, 0, 0.3), var(--bg-card));
+}
+
+.place-2 .podium-bar {
+  height: 110px;
+  background: linear-gradient(180deg, rgba(192, 192, 192, 0.2), var(--bg-card));
+  border-color: var(--silver);
+}
+
+.place-3 .podium-bar {
+  height: 80px;
+  background: linear-gradient(180deg, rgba(205, 127, 50, 0.2), var(--bg-card));
+  border-color: #cd7f32;
+}
+
+.other-players {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.other-players h3 {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.other-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.other-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.other-rank {
+  color: var(--text-muted);
+  font-weight: 600;
+  min-width: 40px;
+}
+
+.other-name {
+  flex: 1;
+  text-align: left;
+}
+
+.other-score {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.celebration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  font-size: 2rem;
+  animation: confetti-fall 4s linear infinite;
+}
+
+.confetti:nth-child(1) { left: 10%; animation-delay: 0s; }
+.confetti:nth-child(2) { left: 30%; animation-delay: 0.5s; }
+.confetti:nth-child(3) { left: 50%; animation-delay: 1s; }
+.confetti:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+.confetti:nth-child(5) { left: 90%; animation-delay: 2s; }
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(800px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-over-header h1 {
+    font-size: 2rem;
+  }
+  
+  .medal {
+    font-size: 3rem;
+  }
+  
+  .podium-bar {
+    width: 80px;
+  }
+  
+  .place-1 .podium-bar {
+    height: 100px;
+  }
+  
+  .place-2 .podium-bar {
+    height: 70px;
+  }
+  
+  .place-3 .podium-bar {
+    height: 50px;
+  }
+}
+
